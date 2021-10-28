@@ -17,8 +17,6 @@ int main(int argc, char** argv)
 
     int size = atoi(argv[1]);
     int repeat = atoi(argv[2]);
-    cout << size << endl;
-    cout << repeat << endl;
 
     int williamArray[size];
     int williamAverages[repeat];
@@ -31,7 +29,7 @@ int main(int argc, char** argv)
         fillArrays(williamArray, floydArray, size);
 
         williamAverages[i] = make_heap_williams(williamArray, size);
-        floydAverages[i] = make_heap_floyd(williamArray, size);
+        floydAverages[i] = make_heap_floyd(floydArray, size);
     }
 
     cout << "William average swaps: " << getAverage(williamAverages, repeat) << endl;
