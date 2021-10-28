@@ -51,8 +51,8 @@ int make_heap_williams(int list[], int size)
 //Returns the number of swaps performed.
 int make_heap_floyd(int list[], int size)
 {
-    int swap = 0;
-    for(int i = size; i > 0; i--)
+    int swaps = 0;
+    for(int i = size - 1; i > 0; i--)
     {
         //Index of parent and children
         int parentIndex = (i - 1) / 2;
@@ -69,8 +69,31 @@ int make_heap_floyd(int list[], int size)
         if(rightChildIndex < size)
             rightChild = list[rightChildIndex];
 
-        
+        //Check sizes
+        if(parent < leftChild || parent < rightChild)
+        {
+            if(leftChild < rightChild)
+            {
+                swap(list[rightChildIndex], list[i]);
+                swaps++;
+            }
+            else
+            {
+                swap(list[leftChildIndex], list[i]);
+                swaps++;
+            }
+        }
+
+        if(i <= (size/2) - 1)
+        {
+            if(!is_heap(parent, leftChild, rightChild))
+            {
+                
+            }
+        }
+
     }
+    return swaps;
 }
 
 void print_heap(int list[], int size)
@@ -107,5 +130,15 @@ bool is_heap(int list[], int size)
             return false;
         }
     }
+    return true;
+}
+
+bool is_heap(int parent, int leftChild, int rightChild)
+{
+    if(parent < leftChild)
+        return false;
+    else if (parent < rightChild)
+        return false;
+
     return true;
 }
