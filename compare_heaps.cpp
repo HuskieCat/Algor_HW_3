@@ -8,6 +8,7 @@ using namespace std;
 
 void fillArrays(int[], int[], int);
 int getAverage(int[], int);
+void printAverageArray(int[], int);
 
 int main(int argc, char** argv)
 {
@@ -17,6 +18,8 @@ int main(int argc, char** argv)
 
     int size = atoi(argv[1]);
     int repeat = atoi(argv[2]);
+
+    srand(time(0));
 
     int williamArray[size];
     int williamAverages[repeat];
@@ -40,13 +43,17 @@ int main(int argc, char** argv)
 
 void fillArrays(int array1[], int array2[], int size)
 {
-    srand(time(NULL));
     for(int i = 0; i < size; i++)
     {
-        int randomInt = rand() % 100 + 1;
-        array1[i] = randomInt;
-        array2[i] = randomInt;
+        array1[i] = 0;
+        array2[i] = 0;
     }
+
+    for(int i = 0; i < size; i++)
+        array1[i] = rand() % 26;
+
+    for(int i = 0; i < size; i++)
+        array2[i] = array1[i];
 }
 
 int getAverage(int averages[], int size)
@@ -55,4 +62,11 @@ int getAverage(int averages[], int size)
     for(int i = 0; i < size; i++)
         sum += averages[i];
     return sum / size;
+}
+
+void printAverageArray(int averages[], int size)
+{
+    for(int i = 0; i < size; i++)
+        cout << averages[i] << " ";
+    cout << endl;
 }

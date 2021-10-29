@@ -7,7 +7,7 @@ int main()
 {
   cout<<"Program Start"<<endl;
 
-  int size = 100;
+  int size = 5;
   int myArray[size];
   int myArray2[size];
 
