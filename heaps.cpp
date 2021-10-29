@@ -1,13 +1,18 @@
 #include <iostream>
 
+/**
+ * Backend for organizing heaps via two methods, Williams and Floyd
+ * 
+ * @author: Bradley Henderson
+ */
+
 using namespace std;
 
 void print_heap(int[], int);
 bool is_heap(int[], int);
 int fix_heap(int[], int, int);
 void set_children_values(int[], int, int&, int&, int&, int&);
-int peform_swap(int list[], int &parentIndex, int &leftChildIndex, int &rightChildIndex, 
-                            int &parent, int &leftChild, int &rightChild);
+int peform_swap(int[], int&, int&, int&, int&, int&, int&);
 
 //Transforms list into a headp using the Williams method.
 //Returns the number of swaps performed.
@@ -70,6 +75,7 @@ int make_heap_floyd(int list[], int size)
     return swaps;
 }
 
+//Prints the heap, good for testing
 void print_heap(int list[], int size)
 {
     for(int i = 0; i < size; i++)
@@ -80,6 +86,7 @@ void print_heap(int list[], int size)
     return;
 }
 
+//Checks a heap top-down to make sure everything is a heap
 bool is_heap(int list[], int size)
 {
     for(int i = 0; i < size; i++)
@@ -105,6 +112,7 @@ bool is_heap(int list[], int size)
     return true;
 }
 
+//Essentually bubbling down the heap to fix the sub heaps.
 int fix_heap(int list[], int size, int parentIndex)
 {
     if(parentIndex  <= -1)
@@ -133,6 +141,7 @@ int fix_heap(int list[], int size, int parentIndex)
     return swaps;
 }
 
+//Sets the values for the left and right children
 void set_children_values(int list[], int size, 
                   int &leftChildIndex, int &rightChildIndex, 
                   int &leftChild, int &rightChild)
@@ -147,6 +156,7 @@ void set_children_values(int list[], int size,
         rightChild = list[rightChildIndex];
 }
 
+//Performs the swaps and returns 1 or 0 depending if it actually gets swapped
 int peform_swap(int list[], int &parentIndex, int &leftChildIndex, int &rightChildIndex, 
                             int &parent, int &leftChild, int &rightChild)
 {

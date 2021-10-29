@@ -4,6 +4,14 @@
 #include <time.h>
 #include "heaps.cpp"
 
+/**
+ * Generates random unorganised heaps. The user at the command line can enter the length
+ * of array they want and how many times it will try that. Then it'll spit out the average
+ * of k trials.
+ * 
+ * @Author: Bradley Henderson
+ */
+
 using namespace std;
 
 void fillArrays(int[], int[], int);
@@ -41,8 +49,10 @@ int main(int argc, char** argv)
     return 0;
 }
 
+//Fills the arrays
 void fillArrays(int array1[], int array2[], int size)
 {
+    //Not needed but for extra protection
     for(int i = 0; i < size; i++)
     {
         array1[i] = 0;
@@ -50,12 +60,13 @@ void fillArrays(int array1[], int array2[], int size)
     }
 
     for(int i = 0; i < size; i++)
+    {
         array1[i] = rand() % 26;
-
-    for(int i = 0; i < size; i++)
         array2[i] = array1[i];
+    }        
 }
 
+//Returns the average of an array
 int getAverage(int averages[], int size)
 {
     int sum = 0;
@@ -64,6 +75,7 @@ int getAverage(int averages[], int size)
     return sum / size;
 }
 
+//Prints individual values for the average arrays
 void printAverageArray(int averages[], int size)
 {
     for(int i = 0; i < size; i++)
