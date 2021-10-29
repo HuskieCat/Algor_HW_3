@@ -3,6 +3,9 @@
 /**
  * Backend for organizing heaps via two methods, Williams and Floyd
  * 
+ * Does NOT compile on its own, must included with another file!
+ * #include "heaps.cpp"
+ * 
  * @author: Bradley Henderson
  */
 
