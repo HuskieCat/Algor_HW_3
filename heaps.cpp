@@ -22,34 +22,11 @@ int make_heap_williams(int list[], int size)
         int rightChildIndex = (2 * i) + 2;
 
         int parent = list[i];
-        /*int leftChild = -1;
-        int rightChild = -1;
-
-        //Get values of parent and children
-        if(leftChildIndex < size)
-            leftChild = list[leftChildIndex];
-        if(rightChildIndex < size)
-            rightChild = list[rightChildIndex];*/
-
         int leftChild;
         int rightChild;
         set_children_values(list, size, 
                         leftChildIndex, rightChildIndex, leftChild, rightChild);
 
-        //Check sizes
-        /*if(parent < leftChild || parent < rightChild)
-        {
-            if(leftChild < rightChild)
-            {
-                swap(list[rightChildIndex], list[parentIndex]);
-                swaps++;
-            }
-            else
-            {
-                swap(list[leftChildIndex], list[parentIndex]);
-                swaps++;
-            }
-        }*/
         swaps += peform_swap(list, parentIndex, leftChildIndex, rightChildIndex, 
                                parent, leftChild, rightChild);
     }
@@ -76,33 +53,10 @@ int make_heap_floyd(int list[], int size)
 
         //Value of children and parent
         int parent = list[parentIndex];
-        /*int leftChild = -1;
-        int rightChild = -1;
-
-        if(leftChildIndex < size)
-            leftChild = list[leftChildIndex];
-        if(rightChildIndex < size)
-            rightChild = list[rightChildIndex];*/
-
         int leftChild;
         int rightChild;
         set_children_values(list, size, 
                         leftChildIndex, rightChildIndex, leftChild, rightChild);
-
-        //Check sizes
-        /*if(parent < leftChild || parent < rightChild)
-        {
-            if(leftChild > rightChild)
-            {
-                swap(list[parentIndex], list[leftChildIndex]);
-                swaps++;
-            }
-            else
-            {
-                swap(list[parent], list[rightChildIndex]);
-                swaps++;
-            }
-        }*/
 
         swaps += peform_swap(list, parentIndex, leftChildIndex, rightChildIndex, 
                                parent, leftChild, rightChild);
@@ -134,13 +88,6 @@ bool is_heap(int list[], int size)
         int rightChildIndex = (2 * i) + 2;
 
         int parent = list[i];
-        /*int leftChild = -1;
-        int rightChild = -1;
-        if(leftChildIndex < size)
-            leftChild = list[leftChildIndex];
-        if(rightChildIndex < size)
-            rightChild = list[rightChildIndex];*/
-
         int leftChild;
         int rightChild;
         set_children_values(list, size, 
@@ -168,14 +115,6 @@ int fix_heap(int list[], int size, int parentIndex)
     int rightChildIndex = (2 * parentIndex) + 2;
 
     int parent = list[parentIndex];
-    /*int leftChild = -1;
-    int rightChild = -1;
-
-    if(leftChildIndex < size)
-        leftChild = list[leftChildIndex];
-    if(rightChildIndex < size)
-        rightChild = list[rightChildIndex];*/
-
     int leftChild;
     int rightChild;
 
@@ -184,20 +123,6 @@ int fix_heap(int list[], int size, int parentIndex)
 
     if((leftChild == -1) && (rightChild == -1))
         return swaps;
-
-    /*if(parent < leftChild || parent < rightChild)
-    {
-        if(leftChild > rightChild)
-        {
-            swap(list[parentIndex], list[leftChildIndex]);
-            swaps++;
-        }
-        else
-        {
-            swap(list[parentIndex], list[rightChildIndex]);
-            swaps++;
-        }
-    }*/
 
     swaps += peform_swap(list, parentIndex, leftChildIndex, rightChildIndex, 
                                parent, leftChild, rightChild);

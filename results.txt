@@ -1,0 +1,25 @@
+$ ./compare_heaps.exe 1000 100000
+William average swaps: 888
+Floyd average swaps: 714
+
+$ ./compare_heaps.exe 100 100000
+William average swaps: 81
+Floyd average swaps: 67
+
+$ ./compare_heaps.exe 100 1000
+William average swaps: 81
+Floyd average swaps: 67
+
+$ ./compare_heaps.exe 10000 100
+William average swaps: 9012
+Floyd average swaps: 7219
+
+$ ./compare_heaps.exe 10 30
+William average swaps: 5
+Floyd average swaps: 4
+
+$ ./compare_heaps.exe 10 60
+William average swaps: 5
+Floyd average swaps: 4
+
+So to give a simple answer Floyd seems to be doing consitently better.
