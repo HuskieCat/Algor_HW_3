@@ -24,4 +24,4 @@ $ ./compare_heaps.exe 10 60
 William average swaps: 5
 Floyd average swaps: 4
 
-So to give a simple answer Floyd seems to be doing consitently better.
+So to give a simple answer Floyd seems to be doing consitently better as in having smaller swaps.
