@@ -1,3 +1,5 @@
+Bradley Henderson
+
 $ ./compare_heaps.exe 1000 100000
 William average swaps: 888
 Floyd average swaps: 714
