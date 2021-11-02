@@ -21,8 +21,11 @@ void printAverageArray(int[], int);
 int main(int argc, char** argv)
 {
     if(argc != 3)
-        cout << "Please input: ./" << argv[0] << " <Size of Array> <Number of Trials>"
+    {
+        cout << "Please input: " << argv[0] << " <Size of Array> <Number of Trials>"
         << endl;
+        return 0;
+    }
 
     int size = atoi(argv[1]);
     int repeat = atoi(argv[2]);
